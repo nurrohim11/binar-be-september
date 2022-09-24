@@ -1,0 +1,4 @@
+const mobileMasgun = {merk:"Toyota",model:"Avanza",warna:'Hitam'}
+console.log(mobileMasgun)
+mobileMasgun.merk = "Pajero"
+console.log(mobileMasgun)
