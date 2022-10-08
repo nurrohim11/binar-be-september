@@ -1,0 +1,17 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "Documentation chapter 4 topic 2 nodejs hello world",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nur rohim",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "nodemon": "^2.0.20"
+  }
+}
