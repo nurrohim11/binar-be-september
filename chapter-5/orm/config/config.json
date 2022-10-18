@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "indonesia45",
+    "database": "orm_db_dev",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "indonesia45",
+    "database": "orm_db_test",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "indonesia45",
+    "database": "orm_db_prod",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
