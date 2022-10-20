@@ -2,7 +2,7 @@ const { article } = require('./models')
 
 article.create({
   title:'Test',
-  body:"Testing",
+  body:"Testing 2",
   approved:true
 })
 .then(resp =>{

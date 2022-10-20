@@ -1,0 +1,10 @@
+1. create folder user
+2. masuk ke folder user dan jalankan perintah npm init -y
+3. npm install sequelize pg
+4. sequelize init
+5. di config.json kita ubah sesuai dengan db dan konfigurasi database
+6. jalankan perintah sequelize db:create
+7. npx sequelize-cli model:generate --name user 
+  --attributes email:string,first_name:string,last_name:string,company_id:integer
+8. npx sequelize-cli model:generate --name company --attributes name:string,address:string
+9. sequelize db:migrate
