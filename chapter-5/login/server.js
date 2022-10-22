@@ -11,8 +11,48 @@ app.get('/health-check', (request, response) =>{
   })
 })
 
+// query param example
+app.get('/api/items', (req, res) =>{
+  const { page=1, limit=10 } = req.query
+  console.log(page)
+  res.json([
+    {
+      id:1,
+      item:'Joystick PS 5'
+    },
+    {
+      id:2,
+      item:'PS 5'
+    }
+  ])
+})
+
+// example path queyr
+app.get('/api/items/:itemId', (req, res) =>{
+  const { itemId } = req.params
+  console.log(itemId)
+  res.json({
+      id:1,
+      item:'Joystick PS 5'
+    })
+})
+
+app.put('/api/items/:itemId', (req, res)=>{
+  const { itemId } = req.params
+  const { item } = req.body
+
+  console.log(itemId)
+  console.log(item)
+
+  res.json({message:'success'})
+})
+
+app.delete('/api/items/:itemId', (req, res)=>{
+  
+})
+
 app.post('/api/v0/login', async (req, res)=>{
-  const { username, password } = req.body
+  const { username='', password='' } = req.body
   if (username == '' || password == '') {
     if (username == '') {
       return res.status(400).json({
@@ -71,7 +111,38 @@ app.post('/api/v0/register', async (req, res)=>{
       })
     }
   }
-  // do register
+
+  // cek usename
+  const myuser = await user.findOne({
+    where:{
+      username:username
+    }
+  })
+  if (myuser != null) {
+    return res.status(400).json({
+      message:'Username not available'
+    })
+  }
+  
+  const dataUser = {
+    name:name,
+    username:username,
+    password:password,
+    role:'user',
+  }
+
+  const saveUser = await user.create(dataUser)
+  if (saveUser == null) {
+    return res.status(500).json({
+      message:'Gagal dala menyimpan data'
+    })
+  }
+
+  res.status(200).json({
+    status:200,
+    message:'Successfull',
+    response: saveUser.dataValues
+  })
 })
 
 app.use(function(req, res, next){
