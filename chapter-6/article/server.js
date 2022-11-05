@@ -72,6 +72,65 @@ app.post('/api/v0/article', async(req, res)=>{
   }
 })
 
+app.put('/api/v0/article/:articleId', async(req, res)=>{
+  const { articleId } = req.params
+  const { title="", body="", approved=false } = req.body
+
+  if (title == "" || body == "") {
+    if (title == "") {
+      return res.status(400).json({
+        status:400,
+        message:'Title tidak kosong'
+      })
+    }
+    if (body == "") {
+      return res.status(400).json({
+        status:400,
+        message:'Body tidak kosong'
+      })
+    }
+  } else {
+    const update = await article.update({
+      title:title,
+      body:body,
+      approved:approved
+    },{
+      where:{
+        id:articleId
+      }
+    })
+    if (update == null) {
+      return res.status(500).json({
+        status:500,
+        message:'Server error'
+      })
+    }
+    res.status(200).json({
+      status:200,
+      message:'Successfull update data'
+    })
+  }
+})
+
+app.delete('/api/v0/article/:articleId', async(req, res)=>{
+  const { articleId } = req.params
+  const del = await article.destroy({
+    where:{
+      id:articleId
+    }
+  })
+  if (del == null) {
+    return res.status(500).json({
+      status:500,
+      message:'Server error'
+    })
+  }
+  res.status(200).json({
+    status:200,
+    message:'Successfull delete data'
+  })
+})
+
 app.listen(port, () =>{
   console.log(`server running at port ${port}`)
 })

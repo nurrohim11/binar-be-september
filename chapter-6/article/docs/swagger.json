@@ -96,6 +96,101 @@
           }
         }
       }
+    },
+    "/article/{articleId}":{
+      "put": {
+        "tags": [
+          "Article"
+        ],
+        "summary": "Update a exist article",
+        "description": "Update a exit article",
+        "operationId": "updateExistArticle",
+        "parameters": [
+          {
+            "name": "articleId",
+            "in": "path",
+            "description": "id of article",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update a exist article",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddArticle"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400":{
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Article"
+        ],
+        "summary": "Delete a exist article",
+        "description": "Delete a exit article",
+        "operationId": "deleteExistArticle",
+        "parameters": [
+          {
+            "name": "articleId",
+            "in": "path",
+            "description": "id of article",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          },
+          "400":{
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
