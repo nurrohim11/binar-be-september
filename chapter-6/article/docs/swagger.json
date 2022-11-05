@@ -1,0 +1,279 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Swagger Article - OpenAPI 3.0",
+    "contact": {
+      "email": "nrohim@binaracademy.org"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.11"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:2006/api/v0"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Article",
+      "description": "Everything about your Article"
+    }
+  ],
+  "paths": {
+    "/article": {
+      "get": {
+        "tags": [
+          "Article"
+        ],
+        "summary": "Find All Article",
+        "description": "Find all article with approved value is true",
+        "operationId": "findAllArticle",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Article"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Article"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Article"
+        ],
+        "summary": "Add a new article",
+        "description": "Add a new article",
+        "operationId": "addNewArticle",
+        "requestBody": {
+          "description": "Create a new article",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddArticle"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessfullAddArticle"
+                }
+              }
+            }
+          },
+          "400":{
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Article": {
+        "type":"object",
+        "properties":{
+          "status":{
+            "type": "integer",
+            "format": "int64",
+            "example": 200
+          },
+          "message":{
+            "type": "string",
+            "example": "Successful"
+          },
+          "response":{
+            "type": "array",
+            "items": {
+              "type":"object",
+              "properties": {
+                "id" :{
+                  "type":"integer",
+                  "example":""
+                },
+                "title" :{
+                  "type":"string",
+                  "example":""
+                },
+                "body" :{
+                  "type":"string",
+                  "example":""
+                },
+                "approved" :{
+                  "type":"boolean",
+                  "example":""
+                },
+                "createdAt" :{
+                  "type":"string",
+                  "example":""
+                },
+                "updatedAt" :{
+                  "type":"string",
+                  "example":""
+                }
+              }
+            }
+          }
+        },
+        "xml": {
+          "name": "pet"
+        }
+      },
+      "AddArticle": {
+        "type":"object",
+        "properties":{
+          "title":{
+            "type": "string",
+            "format": "int64",
+            "example": "Hello world"
+          },
+          "body":{
+            "type": "string",
+            "example": "Hello my world"
+          },
+          "approved":{
+            "type": "boolean",
+            "example": true
+          }
+        }
+      },
+      "SuccessfullAddArticle": {
+        "type":"object",
+        "properties":{
+          "status":{
+            "type": "integer",
+            "format": "int64",
+            "example": 200
+          },
+          "message":{
+            "type": "string",
+            "example": "Successful"
+          },
+          "response":{
+            "type": "object",
+            "properties": {
+              "id" :{
+                "type":"integer",
+                "example":""
+              },
+              "title" :{
+                "type":"string",
+                "example":""
+              },
+              "body" :{
+                "type":"string",
+                "example":""
+              },
+              "approved" :{
+                "type":"boolean",
+                "example":""
+              },
+              "createdAt" :{
+                "type":"string",
+                "example":""
+              },
+              "updatedAt" :{
+                "type":"string",
+                "example":""
+              }
+            }
+          }
+        }
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "##default"
+        }
+      }
+    },
+    "requestBodies": {
+      "Pet": {
+        "description": "Pet object that needs to be added to the store",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Pet"
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/Pet"
+            }
+          }
+        }
+      },
+      "UserArray": {
+        "description": "List of user object",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "petstore_auth": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://petstore3.swagger.io/oauth/authorize",
+            "scopes": {
+              "write:pets": "modify pets in your account",
+              "read:pets": "read your pets"
+            }
+          }
+        }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    }
+  }
+}
