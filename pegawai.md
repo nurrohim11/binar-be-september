@@ -15,5 +15,13 @@ sequelize db:migrate
 - article
   - title, body, approved
 
-  npx sequelize-cli model:generate --name article --attributes title:string,body:string,approved:boolean  
-  sequelize db:migrate
+  npx sequelize-cli model:generate --name item --attributes name:string,price:integer,qty:integer
+  npx sequelize-cli db:migrate
+
+
+- crud product
+  name, qty, price, image, category, description
+
+- create API documentation
+- setiap endpoint harus ada validasi untuk mengecek string kosong apa enggak. 
+- setiap documentasi harus ada contoh response baik itu response 500, 400, 200, 404
