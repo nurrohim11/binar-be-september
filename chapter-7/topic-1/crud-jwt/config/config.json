@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "indonesia45",
+    "database": "crud_jwt_binar_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "indonesia45",
+    "database": "crud_jwt_binar_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "indonesia45",
+    "database": "crud_jwt_binar_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
