@@ -13,7 +13,7 @@ router.post('/auth/login-with-google', authController.loginUser)
 router.post('/auth/login', authController.loginUser)
 router.post('/auth/refresh-token', authController.refreshToken)
 
-router.get('/product', productController.list)
+router.get('/product', auth, productController.list)
 router.post('/product',auth, productController.createProduct)
 router.put('/product/:productId',auth, productController.editProduct)
 router.delete('/product/:productId',auth, productController.deleteProduct)
