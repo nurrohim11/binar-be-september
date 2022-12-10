@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 2006
+const port = process.env.PORT || 2006
 const router = require('./routes') // tambah code ini
 
 // import library and file json swagger

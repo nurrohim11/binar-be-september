@@ -13,7 +13,10 @@
   },
   "servers": [
     {
-      "url": "http://localhost:2006/api/v0"
+      "url": "http://localhost:2006"
+    },
+    {
+      "url": "https://article-mcr-rohim.herokuapp.com"
     }
   ],
   "tags": [
@@ -27,7 +30,56 @@
     }
   ],
   "paths": {
-    "/article": {
+    "/api/v0/article/upload":{
+      "post": {
+        "tags": [
+          "Article"
+        ],
+        "summary": "Upload image article",
+        "description": "Upload image article",
+        "operationId": "uploadArticle",
+        "requestBody": {
+          "description": "Upload image article",
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties":{
+                  "image":{
+                    "type": "string",
+                    "format":"binary"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessfullAddArticle"
+                }
+              }
+            }
+          },
+          "400":{
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v0/article": {
       "get": {
         "tags": [
           "Article"
@@ -101,7 +153,7 @@
         }
       }
     },
-    "/article/{articleId}":{
+    "/api/v0/article/{articleId}":{
       "put": {
         "tags": [
           "Article"
@@ -197,7 +249,7 @@
       }
     },
 
-    "/item": {
+    "/api/v0/item": {
       "get": {
         "tags": [
           "Item"
@@ -264,7 +316,7 @@
       }
     },
 
-    "/item/{itemId}":{
+    "/api/v0/item/{itemId}":{
       "put": {
         "tags": [
           "Item"

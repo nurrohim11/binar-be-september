@@ -21,6 +21,10 @@ module.exports = {
     })
   },
 
+  uploadArticle: async(req, res) =>{
+    res.json(req.file)
+  },
+
   createArticle:async(req, res) =>{
     const { title="", body="", approved=false } = req.body
     if (title == "" || body == "") {

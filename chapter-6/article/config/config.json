@@ -1,23 +1,26 @@
 {
   "development": {
     "username": "postgres",
-    "password": "indonesia45",
+    "password": "postgres",
     "database": "article_db_development",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "port":"1234"
   },
   "test": {
     "username": "postgres",
-    "password": "indonesia45",
+    "password": "postgres",
     "database": "article_db_test",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "port":"1234"
   },
   "production": {
     "username": "postgres",
-    "password": "indonesia45",
+    "password": "postgres",
     "database": "article_db_production",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "port":"1234"
   }
 }
