@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "indonesia45",
+    "database": "apps_email_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "indonesia45",
+    "database": "apps_email_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "indonesia45",
+    "database": "apps_email_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

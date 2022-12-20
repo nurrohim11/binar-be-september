@@ -10,6 +10,11 @@ module.exports = (req, res, next) => {
           return res.status(403).json({message:"Invalid token"});
         }
         req.user = decoded;
+        // {
+        //     "id":1,
+        //     "name":"Sabrina",
+        //     "role":"admin"
+        // }
         next();
     } catch (error) {
         res.status(401).json({message:error.message});
