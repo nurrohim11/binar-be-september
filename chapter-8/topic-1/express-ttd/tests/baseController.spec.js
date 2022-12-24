@@ -32,6 +32,7 @@ describe('Base controller hello function', ()=>{
 
 describe('Base controller sum function', ()=>{
   test('res.json called with {status:true, message:"parameters summarized!", data:{x:x, y:y, result: x+y}}', (done)=>{
+    
     const req = mockRequest({x:5, y:5})
     const res = mockResponse()
 
@@ -40,7 +41,7 @@ describe('Base controller sum function', ()=>{
     expect(res.status).toBeCalledWith(200)
     expect(res.json).toBeCalledWith({
       status:true, 
-      message:"parameters summarized!",
+      message:"parameters summarized123!",
       data:{
         x:req.body.x, 
         y:req.body.y, 

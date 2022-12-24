@@ -14,6 +14,12 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
+app.get('/api/health-check', (req, res)=>{
+  res.json({
+    message:'Health check success'
+  })
+})
+
 app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(swaggerJson)) // use di express//
 app.use(router) //
 

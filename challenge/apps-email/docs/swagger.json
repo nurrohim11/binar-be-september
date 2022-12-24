@@ -14,6 +14,9 @@
   "servers": [
     {
       "url": "http://localhost:7100"
+    },
+    {
+      "url": "https://simple-apps-email-rohim.herokuapp.com"
     }
   ],
   "tags": [

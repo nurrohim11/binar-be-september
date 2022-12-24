@@ -1,0 +1,9 @@
+1. Masuk ke RDS -> database -> create database
+2. Pilih antara standard atau easy create
+3. Isi form yang di sediakan oleh AWS
+4. Klik save database
+5. Masuk ke detail database dengan klik aja nama databasenya
+6. Cari "VPC security groups" di tab "Connectivity & Security"
+7. Klik link di bawah teks "VPC security groups"
+8. Klik tab "Inbound Rules" dan klik "Edit Inbound Rules"
+9. Add rule kemudian tambahkan Type dengna "All TCP" dan "All Traffic"

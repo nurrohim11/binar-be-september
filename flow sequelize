@@ -8,3 +8,6 @@
   --attributes email:string,first_name:string,last_name:string,company_id:integer
 8. npx sequelize-cli model:generate --name company --attributes name:string,address:string
 9. sequelize db:migrate
+
+# command seeders
+sequelize db:seed:all --env production

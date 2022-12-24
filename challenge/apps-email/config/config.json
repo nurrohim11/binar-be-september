@@ -1,23 +1,23 @@
 {
   "development": {
     "username": "postgres",
-    "password": "indonesia45",
-    "database": "apps_email_development",
-    "host": "127.0.0.1",
+    "password": "226c1811-572a-43fa-967b-740885d5a09d",
+    "database": "apps_email_dev",
+    "host": "database-binar-2.czz88d8vwmey.ap-southeast-1.rds.amazonaws.com",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
-    "password": "indonesia45",
+    "password": "226c1811-572a-43fa-967b-740885d5a09d",
     "database": "apps_email_test",
-    "host": "127.0.0.1",
+    "host": "database-binar-2.czz88d8vwmey.ap-southeast-1.rds.amazonaws.com",
     "dialect": "postgres"
   },
   "production": {
     "username": "postgres",
-    "password": "indonesia45",
-    "database": "apps_email_production",
-    "host": "127.0.0.1",
+    "password": "226c1811-572a-43fa-967b-740885d5a09d",
+    "database": "apps_email_prod",
+    "host": "database-binar-2.czz88d8vwmey.ap-southeast-1.rds.amazonaws.com",
     "dialect": "postgres"
   }
 }
